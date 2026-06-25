@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hth 产品说明 · 快速了解站点用途</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f2f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      padding: 30px 20px;
+      color: #1e2a33;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Hero 简约头 */
+    .hero {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 38px 32px 28px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6e9ed;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: #162029;
+    }
+    .hero h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #5e6d7a;
+      margin-left: 6px;
+    }
+    .hero p {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: #34495e;
+      max-width: 700px;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 26px 28px;
+      border: 1px solid #e6e9ed;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      margin-bottom: 22px;
+      transition: box-shadow 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: #1c2a36;
+      border-left: 4px solid #3b7a9e;
+      padding-left: 14px;
+    }
+    .card h3 {
+      font-size: 1.08rem;
+      font-weight: 500;
+      margin: 18px 0 6px;
+      color: #233543;
+    }
+    .card p, .card li {
+      color: #314b5c;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 8px;
+    }
+    .card ul li {
+      position: relative;
+      padding-left: 16px;
+    }
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #3b7a9e;
+      font-weight: bold;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 16px 0 6px;
+    }
+    .tag-list span {
+      background: #edf2f6;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #1f3b4a;
+      border: 1px solid #d9e1e8;
+    }
+
+    /* 场景双栏 */
+    .scenes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .scene-item {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px 22px;
+      border: 1px solid #e6e9ed;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+    }
+    .scene-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: #1f3645;
+    }
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #3b5366;
+    }
+
+    /* 提示 & FAQ 混合 */
+    .note-box {
+      background: #f8fafc;
+      border-left: 4px solid #7d929f;
+      padding: 16px 22px;
+      border-radius: 0 12px 12px 0;
+      margin: 18px 0 4px;
+      font-size: 0.96rem;
+      color: #2b4050;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+      margin: 12px 0 4px;
+    }
+    .faq-item {
+      padding: 4px 0;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1f3645;
+    }
+    .faq-item span {
+      font-size: 0.93rem;
+      color: #3a5366;
+    }
+
+    a {
+      color: #1f6290;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s;
+    }
+    a:hover {
+      border-bottom-color: #1f6290;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 0.85rem;
+      color: #657b8a;
+      border-top: 1px solid #dbe2e8;
+      padding-top: 24px;
+    }
+    .footer a {
+      color: #3b5d74;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.7rem; }
+      .scenes { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .card ul { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero 介绍站点用途 -->
+  <div class="hero">
+    <h1>hth <small>· 产品说明页</small></h1>
+    <p>如果你正在寻找一个用途明确、结构清晰的站点，<a href="https://hth-official-huatihui.com">hth</a> 提供了一套围绕信息整合与工具化访问的设计。本页帮你快速理解它能做什么、适合谁，以及如何开始使用。</p>
+  </div>
+
+  <!-- 摘要 + 亮点 合并卡片 -->
+  <div class="card">
+    <h2>一句话摘要</h2>
+    <p><strong>hth</strong> 是一个以实用功能为导向的轻量平台，主要面向需要快速获取特定信息或完成简单操作的访问者。站点围绕几个核心模块展开，不堆砌无关内容，也不依赖复杂注册流程。</p>
+
+    <h3>亮点一览</h3>
+    <div class="tag-list">
+      <span>模块化入口</span>
+      <span>低使用门槛</span>
+      <span>信息直给</span>
+      <span>无需下载</span>
+    </div>
+    <ul>
+      <li>页面结构清晰，主要功能可在三分钟内完成定位与使用</li>
+      <li>适合临时查阅、快速比对或日常轻度操作</li>
+      <li>不要求注册或提供个人资料即可使用基础能力</li>
+    </ul>
+  </div>
+
+  <!-- 使用建议 独立卡片 -->
+  <div class="card">
+    <h2>使用建议</h2>
+    <p>初次访问 <a href="https://hth-official-huatihui.com">hth</a> 时，建议先浏览首页导航区域的分类标签。各模块用途独立，你可以直接点击感兴趣的部分进入。以下几条经验供参考：</p>
+    <ol style="margin-left: 22px; color: #314b5c; padding-left: 0;">
+      <li style="margin-bottom: 6px;">先阅读每个模块的简短标题和描述，避免在不相关的内容上花费时间。</li>
+      <li style="margin-bottom: 6px;">部分页面提供筛选或排序功能，善用它们能更快锁定结果。</li>
+      <li style="margin-bottom: 6px;">如果遇到不明确的术语，站点内通常附有简注或示例。</li>
+    </ol>
+    <div class="note-box">
+      ⚡ 提示：大多数功能无需登录即可使用。如需保存进度或个性化设置，才考虑注册账户。
+    </div>
+  </div>
+
+  <!-- 场景分区 (双栏) -->
+  <div class="scenes">
+    <div class="scene-item">
+      <h3>📋 信息查询场景</h3>
+      <p>当你需要快速核查某个条目、获取结构化列表或对比参数时，<a href="https://hth-official-huatihui.com">hth</a> 的查询模块能直接呈现结果，减少中间跳转。</p>
+    </div>
+    <div class="scene-item">
+      <h3>🧰 轻量工具场景</h3>
+      <p>站点内集成了一些小型辅助功能（如格式转换、简单计算、内容摘要），适合在浏览器中直接完成，不用打开其他软件。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 + 可信说明 -->
+  <div class="card">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <strong>需要安装或插件吗？</strong>
+        <span>不需要。所有功能基于网页，在主流浏览器中均可正常使用。</span>
+      </div>
+      <div class="faq-item">
+        <strong>内容更新频率如何？</strong>
+        <span>数据来源会定期同步，具体更新节奏见各模块页脚标注。</span>
+      </div>
+      <div class="faq-item">
+        <strong>是否收费？</strong>
+        <span>当前核心功能免费开放。未来若有扩展服务会提前说明。</span>
+      </div>
+      <div class="faq-item">
+        <strong>隐私方面？</strong>
+        <span>站点不追踪个人浏览行为，也不会在未授权时收集信息。</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 18px; padding-top: 12px; border-top: 1px solid #e6eaef;">
+      <p style="font-size: 0.95rem;"><strong>可信但克制的说明：</strong> 本页面所描述的功能均基于 <a href="https://hth-official-huatihui.com">hth</a> 当前版本的实际表现。站点团队持续改进但不做过度承诺，所有使用体验建议以实际访问为准。</p>
+    </div>
+  </div>
+
+  <!-- 呼应开头 -->
+  <div class="card" style="background: #f8fafc;">
+    <p style="margin: 0; font-size: 1rem; text-align: center; color: #2f4b5e;">
+      如果你尚未访问过，现在可以从 <a href="https://hth-official-huatihui.com">hth</a> 开始。<br>
+      页面设计以实用为优先，不堆叠无关元素。
+    </p>
+  </div>
+
+  <div class="footer">
+    <span>产品说明 · 基于当前版本整理 &nbsp;|&nbsp; <a href="https://hth-official-huatihui.com">hth</a></span>
+  </div>
+
+</div>
+</body>
+</html>
