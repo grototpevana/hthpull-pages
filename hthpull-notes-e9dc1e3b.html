@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 信息索引与资料整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f6fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e1e2a;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: #0d0d1a;
+            background-image: radial-gradient(circle at 20% 30%, #1f2b47, #0a0a12);
+            color: #f0f2f6;
+            padding: 4.5rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f5f6fa;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+            color: #bcc3d4;
+            font-weight: 300;
+        }
+
+        .hero .meta-note {
+            display: inline-block;
+            margin-top: 1.8rem;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #a1abbf;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.2s;
+        }
+
+        .intro-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #5b6f9e;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            border-left: 3px solid #5b6f9e;
+            padding-left: 0.75rem;
+        }
+
+        .intro-card h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #161c2b;
+        }
+
+        .intro-card p {
+            color: #3e4254;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef0f6;
+            transition: transform 0.15s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-card .emoji-marker {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #1f2840;
+        }
+
+        .feature-card p {
+            color: #4f5570;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .audience-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .audience-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #161c2b;
+        }
+
+        .audience-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+        }
+
+        .audience-list li {
+            flex: 1 1 180px;
+            padding: 0.4rem 0 0.4rem 1.2rem;
+            border-left: 3px solid #d3dae8;
+            color: #2b2f41;
+            font-size: 1rem;
+        }
+
+        .audience-list li strong {
+            font-weight: 500;
+            color: #0c0e18;
+        }
+
+        .link-note {
+            margin-top: 2.5rem;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            border-left: 5px solid #1f2b47;
+        }
+
+        .link-note p {
+            font-size: 1.05rem;
+            color: #262b3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-note a {
+            color: #1f3a6b;
+            background-color: #eef2fa;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .link-note a:hover {
+            background-color: #dce3f3;
+            color: #0f2044;
+            border-bottom: 1px solid #1f3a6b;
+        }
+
+        .faq-mini {
+            margin-top: 2rem;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #161c2b;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eaeef4;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1a233a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #41465c;
+            font-size: 0.95rem;
+            margin-left: 0;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #dce1ed, transparent);
+            margin: 0.8rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #6f7894;
+            padding: 0 1rem;
+        }
+
+        .footer-note a {
+            color: #1f3a6b;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .intro-card,
+            .audience-section,
+            .link-note,
+            .faq-mini {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audience-list {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>华体会 · 资料索引</h1>
+        <p>一份围绕信息整理与使用场景的简明说明页，帮助你快速了解品牌定位、内容结构和常见用途。</p>
+        <span class="meta-note">整理日期 · 2025 · 索引编号 b3dfb4c33f88245a</span>
+    </section>
+
+    <div class="container">
+        <!-- 主要介绍卡片 -->
+        <div class="intro-card">
+            <span class="section-label">概述</span>
+            <h2>关于华体会</h2>
+            <p>
+                <a href="https://hthpull.com.cn" style="background: #eef2fa; padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f3a6b; text-decoration: none; font-weight: 500;">华体会</a> 
+                是一个面向多元化信息需求的综合平台，其内容体系涵盖资讯聚合、功能指引与资源索引。从资料整理的角度来看，该站点的结构强调分类清晰与检索效率，用户可以通过导航与标签体系快速定位感兴趣的内容模块。
+            </p>
+            <p>
+                本介绍页从信息卡片式的视角出发，将核心用途、适合人群以及常见索引场景加以归纳，力求呈现一份平实、可读的说明。
+            </p>
+        </div>
+
+        <!-- 用途卡片网格 -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="emoji-marker">📋</span>
+                <h3>功能速览</h3>
+                <p>提供分类目录与内容预览，便于使用者按主题筛选，减少信息过载。</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji-marker">🔍</span>
+                <h3>索引与检索</h3>
+                <p>内置关键词索引与标签系统，支持对特定内容方向的快速定位。</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji-marker">🧩</span>
+                <h3>模块化布局</h3>
+                <p>页面采用卡片式分区，不同信息块之间保持视觉与逻辑独立，方便查阅。</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji-marker">📂</span>
+                <h3>资源归档</h3>
+                <p>长期维护内容归档结构，帮助用户回溯或对比不同阶段的信息集合。</p>
+            </div>
+        </div>
+
+        <!-- 适合人群 -->
+        <div class="audience-section">
+            <h2>适合人群</h2>
+            <ul class="audience-list">
+                <li><strong>信息整理者</strong> · 需要结构化浏览和分类存档的用户</li>
+                <li><strong>日常浏览者</strong> · 习惯从索引页快速了解内容全貌的访客</li>
+                <li><strong>内容研究者</strong> · 关注模块划分与信息关联度的分析者</li>
+                <li><strong>功能体验者</strong> · 对交互方式与卡片布局有探索兴趣的用户</li>
+            </ul>
+        </div>
+
+        <!-- 自然链接段落 -->
+        <div class="link-note">
+            <p>
+                如果你希望从原始站点获取更完整的分类信息或浏览具体模块，可以直接前往 
+                <a href="https://hthpull.com.cn">华体会</a> 
+                的主站查阅。该站点的内容结构以信息卡片与标签页为主，适合对资料索引有明确需求的访客。
+            </p>
+            <p style="margin-top: 0.5rem; color: #565d77; font-size: 0.95rem;">
+                此外，你也可以在日常浏览中将该页面作为内容整理的参考入口。
+            </p>
+        </div>
+
+        <!-- FAQ摘要 -->
+        <div class="faq-mini">
+            <h3>常见索引说明</h3>
+            <div class="faq-item">
+                <strong>这个页面是官方介绍吗？</strong>
+                <p>这是一份非官方的资料整理页，从用户角度归纳了站点的信息结构和常见用途，内容基于公开可访问的界面与功能逻辑。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何获取最新内容？</strong>
+                <p>站点内容会定期更新，你可以直接通过主站导航查看最新模块，也可以参考本页的卡片分类作为索引线索。</p>
+            </div>
+            <div class="faq-item">
+                <strong>卡片式阅读有什么优势？</strong>
+                <p>卡片分区让信息层级更清晰，尤其适合快速扫描与对比不同板块，减少滚动查找负担。</p>
+            </div>
+            <hr>
+            <p style="font-size: 0.9rem; color: #5d6582; margin-top: 0.5rem;">
+                本页内容仅作参考，具体功能与模块以实际站点为准。
+            </p>
+        </div>
+
+        <div class="footer-note">
+            <p>索引参考 · <a href="https://hthpull.com.cn">华体会</a> · 信息卡片式整理页</p>
+            <p style="margin-top: 0.2rem; opacity: 0.7;">内容基于公开资料整理，不构成任何形式的引导或承诺。</p>
+        </div>
+    </div>
+</body>
+</html>
